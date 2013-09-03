@@ -1,27 +1,34 @@
-body {
-    padding: 30px;
+.container {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+    background: transparent url(../img/bgr.png) no-repeat top center;
+    min-height: 1200px;
 }
 
 #card {
-    margin: 50px 0;
+    position: absolute;
+    background: #ddd;
+    left: 212px;
+    top: 280px;
+    width: 380px;
+    height: 380px;
+    opacity: 0.6;
+    padding-left: 5px;
 }
 
-#card .card_row {
+#card .card-row {
     width: 76px;
     height: 76px;
     background: #ddd;
     float: left;
 }
 
-#card .card_row:nth-child(2n) {
-    background: #eee;
-}
-
-#card .card_row .item {
-    width: 48px;
-    height: 48px;
+#card .card-row .item {
+    width: 50px;
+    height: 50px;
     background: #333;
-    margin: 14px;
+    margin: 6px;
 }
 
 .revelation {
