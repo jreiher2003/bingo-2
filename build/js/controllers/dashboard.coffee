@@ -3,15 +3,17 @@ angular.module("controllers").controller "Dashboard", [
   "socket"
   ($scope, socket) ->
     $scope.elements = []
-    elements = []
     for i in [0..24]
       $scope.elements.push (
         clicked: false
         value: false
       )
 
-    console.log elements
+    socket.on "newGame", (data) ->
+      console.log argumentsgt
 
-    socket.on "new-game", ->
-      console.log arguments
+    $scope.bingo = ->
+
+    $scope.chooseElement = (element) ->
+      console.log element
 ]
