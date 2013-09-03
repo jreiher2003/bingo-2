@@ -1,23 +1,17 @@
 angular.module("controllers").controller "Dashboard", [
   "$scope"
   "socket"
-<<<<<<< Updated upstream
-  (socket) ->
-    socket.on "new-game", ->
-      console.log arguments
-=======
   ($scope, socket) ->
-
     $scope.elements = []
+    elements = []
     for i in [0..24]
       $scope.elements.push (
         clicked: false
         value: false
       )
 
-    socket.on "new-game", (data) ->
-      # init dashboard
+    console.log elements
 
-    $scope.bingo = ->
->>>>>>> Stashed changes
+    socket.on "new-game", ->
+      console.log arguments
 ]
