@@ -47,8 +47,16 @@
     opacity: 0.8;
 }
 
-#card .card-row .item.clicked img {
-    opacity: 0.5;
+#card .card-row .item.clicked img, #card .card-row .item.clicked:hover img {
+    opacity: 0.4;
+}
+
+#card .card-row .item.successed {
+    background: transparent url(../img/success.png) no-repeat center center;
+}
+
+#card .card-row .item.successed:hover img {
+    opacity: 1 !important;
 }
 
 #revelation {
