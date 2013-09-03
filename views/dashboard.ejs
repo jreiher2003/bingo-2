@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html ng-app="hensus-bingo">
 <head>
     <meta charset="utf-8">
     <title>Hesus Bingo!</title>
@@ -22,7 +22,7 @@
 
 <body>
 
-<div class="container">
+<div class="container" ng-controller="Dashboard">
     <div class="row">
         <div class="span6">
             <h1 id="logo">Hesus Bingo!</h1>
@@ -85,9 +85,10 @@
 
 </div>
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script src="js/bootstrap.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
+<script src="/js/vendors/socket.io.min.js"></script>
+<script src="/js/vendors/jquery.min.js"></script>
+<script src="/js/vendors/bootstrap.min.js"></script>
+<script src="/js/vendors/angular.min.js"></script>
 <script src="/js/application.js"></script>
 </body>
 </html>
