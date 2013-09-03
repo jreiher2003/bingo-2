@@ -1,5 +1,5 @@
 {
-  "name": "hackaton bingo",
+  "name": "bingo",
   "description": "Hackaton Bingo",
   "version": "0.0.1",
   "private": true,
@@ -7,6 +7,6 @@
     "express": "3.3.x",
     "request": "*",
     "redis": "*",
-    "node-uuid": "*",
+    "node-uuid": "*"
   }
 }
