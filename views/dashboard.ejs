@@ -27,8 +27,8 @@
 
 <div class="container" ng-controller="Dashboard">
     <div id="card">
-        <div class="card-row" ng-repeat="element in elements" ng-class="{element.clicked: clicked}">
-            <div class="item">
+        <div class="card-row" ng-repeat="element in elements">
+            <div class="item" ng-class="element.clicked">
                 <img
                         ng-hide="!element.value"
                         ng-src="/img/icons/{{ element.value }}.png"

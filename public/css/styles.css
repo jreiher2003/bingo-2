@@ -43,12 +43,20 @@
     height: 50px;
 }
 
+<<<<<<< Updated upstream
 #card .card-row .item:hover img{
     opacity: 0.8;
 }
 
 #card .card-row .item.clicked img {
+=======
+#card .card-row .clicked img {
+>>>>>>> Stashed changes
     opacity: 0.5;
+}
+
+#card .card-row .successed img {
+    background-color: red;
 }
 
 #revelation {
