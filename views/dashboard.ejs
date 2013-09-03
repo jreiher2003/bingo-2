@@ -17,21 +17,6 @@
 
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="ico/favicon.png">
-
-
-    <script src="js/vendors/socket.io.min.js"></script>
-    <script src="js/chat.js"></script>
-    <script>
-        window.onload = function() {
-          var socket = io.connect('http://localhost:8000');
-          socket.on('newGame', function (data) {
-            $('#ui-game-sign').html(data);
-          });
-          socket.on('newRound', function (data) {
-            $('#ui-game-sign').html(data);
-          });
-        }
-    </script>
 </head>
 
 <body>
@@ -39,14 +24,21 @@
 <div class="container" ng-controller="Dashboard">
     <div id="card">
         <div class="card-row" ng-repeat="element in elements" ng-class="{element.clicked: clicked}">
-            <div class="item"></div>
-            <img ng-hide="!element.value" ng-src="/img/{{ element.value }}.jpg" ng-click="chooseElement(element)" />
+            <div class="item">
+                <img
+                        ng-hide="!element.value"
+                        ng-src="/img/{{ element.value }}.png"
+                        ng-click="chooseElement(element)" />
+            </div>
         </div>
     </div>
 
     <div id="revelation">
-        <img id="latest" src="http://placehold.it/100x100" />
-        <div id="next">5</div>
+        <img
+                id="latest"
+                ng-hide="!nextRevelationElement"
+                ng-src="/img/{{ nextRevelationElement }}.png" />
+        <div id="next">{{ nextRevelation }}</div>
     </div>
 </div>
 
