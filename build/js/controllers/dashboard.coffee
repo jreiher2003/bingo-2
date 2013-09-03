@@ -1,8 +1,8 @@
 angular.module("controllers").controller "Dashboard", [
   "$scope"
   "socket"
-  "$timeout"
-  ($scope, socket, $timeout) ->
+  "$window"
+  ($scope, socket, $window) ->
     $scope.nextRevelation = 5
     $scope.nextRevelationElement = false
 
@@ -21,24 +21,21 @@ angular.module("controllers").controller "Dashboard", [
 
     currentLowerRevelation = null
     lowerRevelation = ->
-      $timeout(
-        ->
-          if $scope.nextRevelation > 0
-            --$scope.nextRevelation
-            lowerRevelation()
-        1000
-      )
+      $scope.$apply ->
+        if $scope.nextRevelation > 0
+          --$scope.nextRevelation
+
 
     socket.on "newRound", (whichOne) ->
       $scope.nextRevelationElement = whichOne
-      $scope.nextRevelation = 6
-      if currentLowerRevelation isnt null
-        $timeout.cancel currentLowerRevelation
-        console.log currentLowerRevelation
-      currentLowerRevelation = lowerRevelation()
+      $scope.nextRevelation = 5
 
+      if currentLowerRevelation isnt null
+        $window.clearInterval currentLowerRevelation
+
+      currentLowerRevelation = $window.setInterval lowerRevelation, 1000
     $scope.bingo = ->
-      socket.emit "bingo"
+      socket.emit "bingo", {}, -> console.log "clicked bingo"
 
     $scope.chooseElement = (element) ->
       element.clicked = true
