@@ -43,10 +43,18 @@
     height: 50px;
 }
 
+<<<<<<< Updated upstream
 #card .card-row .item:hover img{
     opacity: 0.8;
 }
 
+<<<<<<< HEAD
+#card .card-row .item.clicked img {
+=======
+#card .card-row .clicked img {
+>>>>>>> Stashed changes
+    opacity: 0.5;
+=======
 #card .card-row .item.clicked img, #card .card-row .item.clicked:hover img {
     opacity: 0.4;
 }
@@ -57,6 +65,11 @@
 
 #card .card-row .item.successed:hover img {
     opacity: 1 !important;
+>>>>>>> faba2478a185a0946b2c6a34d2cfde560d94dafa
+}
+
+#card .card-row .successed img {
+    background-color: red;
 }
 
 #revelation {
