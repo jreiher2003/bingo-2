@@ -1,7 +1,6 @@
-config = require '../config'
 
-module.exports = (app) ->
-  app.get '/', dashboard
+getRoot = (req, res) ->
+  res.render "dashboard.ejs"
 
-dashboard = (req, res) ->
-  res.send('dashboard')
+exports = module.exports = (app) ->
+  app.get "/", getRoot

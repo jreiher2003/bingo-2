@@ -1,12 +1,13 @@
 {
-  "name": "bingo",
-  "description": "Hackaton Bingo",
-  "version": "0.0.1",
-  "private": true,
-  "dependencies": {
-    "express": "3.3.x",
-    "request": "*",
-    "redis": "*",
-    "node-uuid": "*"
-  }
+    "name": "bingo",
+    "description": "Hackaton Bingo",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "3.3.x",
+        "request": "*",
+        "redis": "*",
+        "node-uuid": "*",
+        "ejs": "*"
+    }
 }

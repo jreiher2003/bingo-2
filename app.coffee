@@ -2,10 +2,13 @@ express = require 'express'
 config = require './config'
 
 app = express()
-app.set('title', 'Hackaton Bingo')
-app.use(express.bodyParser());
+app.set 'title', 'Hackaton Bingo'
+app.set 'views', "#{__dirname}/views"
 
-require('./controllers/dashboard')(app)
+app.use    express.bodyParser()
+app.engine 'ejs', (require 'ejs').renderFile
+
+(require './controllers/dashboard') app
 
 app.listen config.app.port
-console.log 'Listening on port '+config.app.port
+console.log "Listening on port #{config.app.port}"

@@ -1,4 +1,4 @@
-module.exports =
+exports = module.exports = (
   app:
-    port: 8000
-
+    port: 8080  
+)
