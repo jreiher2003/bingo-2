@@ -7,6 +7,7 @@ app = express()
 app.set 'title', 'Hackaton Bingo'
 app.set 'views', "#{__dirname}/views"
 
+app.use express.static "#{__dirname}/public"
 app.use    express.bodyParser()
 app.engine 'ejs', (require 'ejs').renderFile
 
