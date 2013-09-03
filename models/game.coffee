@@ -12,7 +12,7 @@ class Game
 
   constructor: (@io) ->
     @id = uuid.v4()
-    @elements = [1..30]
+    @elements = config.game.elements
     @element = @getRandomElement()
     @fireLoop()
 
@@ -31,5 +31,4 @@ class Game
     setInterval @createNewRound, config.game.roundTime
 
   createNewRound: =>
-    @element = @getRandomElement()
-    @io.sockets.emit 'newRound', @element
+    @io.sockets.emit 'newRound', @getRandomElement()
