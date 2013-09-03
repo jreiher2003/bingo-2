@@ -8,19 +8,16 @@
 
 #card {
     position: absolute;
-    background: #ddd;
     left: 212px;
-    top: 280px;
+    top: 302px;
     width: 380px;
     height: 380px;
-    opacity: 0.6;
     padding-left: 5px;
 }
 
 #card .card-row {
     width: 76px;
     height: 76px;
-    background: #ddd;
     float: left;
 }
 
@@ -31,11 +28,30 @@
     margin: 6px;
 }
 
-.revelation {
+#revelation {
+    position: absolute;
     text-align: center;
+    right: 188px;
+    top: 500px;
+    width: 300px;
+    height: 286px;
 }
 
-.revelation img.zen {
-    display: inline-block;
-    margin: 20px 0;
+#revelation #latest {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: 94px;
+    left: 102px;
+}
+
+#revelation #next {
+    position: absolute;
+    right: 25px;
+    top: 232px;
+    width: 50px;
+    color: #fff;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 28px;
 }
