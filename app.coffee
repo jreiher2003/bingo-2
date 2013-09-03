@@ -5,6 +5,7 @@ app = express()
 app.set('title', 'Hackaton Bingo')
 app.use(express.bodyParser());
 
+require('./controllers/dashboard')(app)
 
 app.listen config.app.port
 console.log 'Listening on port '+config.app.port
