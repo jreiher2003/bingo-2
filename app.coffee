@@ -18,7 +18,7 @@ io = require('socket.io').listen(app.listen(config.app.port));
 gameInstance = game.createGame(io)
 
 (require './controllers/sockets/connection') io, gameInstance
-(require './controllers/sockets/game') io
+#(require './controllers/sockets/game') io, gameInstance
 
 
 console.log "Listening on port #{config.app.port}"
