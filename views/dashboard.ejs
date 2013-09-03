@@ -28,6 +28,9 @@
           socket.on('newGame', function (data) {
             $('#ui-game-sign').html(data);
           });
+          socket.on('newRound', function (data) {
+            $('#ui-game-sign').html(data);
+          });
         }
     </script>
 </head>

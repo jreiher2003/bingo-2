@@ -1,6 +1,6 @@
 express = require 'express'
 config = require './config'
-game = require('./models/game').createGame()
+game = require('./models/game')
 
 app = express()
 app.set 'title', 'Hackaton Bingo'
@@ -15,8 +15,9 @@ app.engine 'ejs', (require 'ejs').renderFile
 
 io = require('socket.io').listen(app.listen(config.app.port));
 
+gameInstance = game.createGame(io)
 
-(require './controllers/sockets/connection') io, game
+(require './controllers/sockets/connection') io, gameInstance
 (require './controllers/sockets/game') io
 
 
