@@ -30,41 +30,19 @@
             <div class="row">
                 <div class="span5 offset1">
                     <div id="card" class="clearfix">
-                        <div class="card_row"></div>
-                        <div class="card_row"></div>
-                        <div class="card_row"><div class="item"></div></div>
-                        <div class="card_row"></div>
-                        <div class="card_row"></div>
-
-                        <div class="card_row"></div>
-                        <div class="card_row"></div>
-                        <div class="card_row"></div>
-                        <div class="card_row"><div class="item"></div></div>
-                        <div class="card_row"></div>
-
-                        <div class="card_row"></div>
-                        <div class="card_row"></div>
-                        <div class="card_row"></div>
-                        <div class="card_row"></div>
-                        <div class="card_row"></div>
-
-                        <div class="card_row"></div>
-                        <div class="card_row"></div>
-                        <div class="card_row"><div class="item"></div></div>
-                        <div class="card_row"></div>
-                        <div class="card_row"></div>
-
-                        <div class="card_row"></div>
-                        <div class="card_row"></div>
-                        <div class="card_row"></div>
-                        <div class="card_row"></div>
-                        <div class="card_row"></div>
+                        <div class="card_row"
+                            ng-repeat="element in elements">
+                            <img
+                                ng-hide="!element.value"
+                                ng-src="/img/{{ element.value }}.jpg"
+                            />
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="span5 offset1">
-                    <button class="btn btn-large btn-block btn-primary" type="button">BINGO!</button>
+                    <button class="btn btn-large btn-block btn-primary" type="button" ng-click="bingo()">BINGO!</button>
                 </div>
             </div>
         </div>
