@@ -8,6 +8,7 @@
         "request": "*",
         "redis": "*",
         "node-uuid": "*",
-        "ejs": "*"
+        "ejs": "*",
+        "socket.io": "latest"
     }
 }

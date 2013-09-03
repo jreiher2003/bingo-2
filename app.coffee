@@ -1,5 +1,7 @@
 express = require 'express'
 config = require './config'
+io = require 'socket.io'
+
 
 app = express()
 app.set 'title', 'Hackaton Bingo'
@@ -10,5 +12,5 @@ app.engine 'ejs', (require 'ejs').renderFile
 
 (require './controllers/dashboard') app
 
-app.listen config.app.port
+io.listen(app.listen(config.app.port));
 console.log "Listening on port #{config.app.port}"
