@@ -1,7 +1,8 @@
 game = require '../../models/game'
 
-getRandomSign = (socket) ->
-  socket.emit 'greetings', game.getRandomSign()
+newGame = (game) ->
+  (socket) ->
+    socket.emit 'newGame', game.shuffleElements()
 
-exports = module.exports = (io) ->
-  io.sockets.on "connection", getRandomSign
+exports = module.exports = (io, game) ->
+  io.sockets.on "connection", (socket) -> newGame(game)(socket)
