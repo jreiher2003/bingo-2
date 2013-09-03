@@ -9,7 +9,8 @@
     "mongodb": "*",
     "node-uuid": "*",
     "ejs": "*",
-    "socket.io": "latest"
+    "socket.io": "latest",
+    "underscore": "latest"
   },
   "devDependencies": {
     "grunt": "~0.4.1",

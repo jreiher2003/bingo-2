@@ -1,6 +1,7 @@
 db = require '../db'
 uuid = require 'node-uuid'
 config = require './../config'
+_ = require 'underscore'
 
 
 module.exports =
@@ -18,13 +19,8 @@ class Game
     @players = []
     @roundNumber = 0
 
-
   shuffleElements: ->
-    res = []
-    for i in [0..24]
-      res.push @getRandomElement()
-
-    res
+    _.shuffle(@elements)
 
   getRandomElement: ->
     @elements[Math.floor(Math.random()*@elements.length - 1) + 1]
