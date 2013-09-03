@@ -17,6 +17,21 @@
 
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="ico/favicon.png">
+
+
+    <script src="js/vendors/socket.io.min.js"></script>
+    <script src="js/chat.js"></script>
+    <script>
+        window.onload = function() {
+          var socket = io.connect('http://localhost:8000');
+          socket.on('newGame', function (data) {
+            $('#ui-game-sign').html(data);
+          });
+          socket.on('newRound', function (data) {
+            $('#ui-game-sign').html(data);
+          });
+        }
+    </script>
 </head>
 
 <body>
