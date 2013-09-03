@@ -9,8 +9,10 @@ angular.module("controllers").controller "Dashboard", [
         value: false
       )
 
-    socket.on "newGame", (data) ->
-      console.log argumentsgt
+    socket.on "newGame", (board) ->
+      i = -1;
+      for value in board
+        $scope.elements[++i].value = value
 
     $scope.bingo = ->
 
