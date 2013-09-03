@@ -43,7 +43,8 @@
                 <div class="span5 offset1">
                     <div id="card" class="clearfix">
                         <div class="card_row"
-                            ng-repeat="element in elements">
+                            ng-repeat="element in elements"
+                                ng-class="{element.clicked: clicked}">
                             <img
                                 ng-hide="!element.value"
                                 ng-src="/img/{{ element.value }}.jpg"

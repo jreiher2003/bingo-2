@@ -7,6 +7,7 @@ angular.module("controllers").controller "Dashboard", [
       $scope.elements.push (
         clicked: false
         value: false
+        index: i
       )
 
     socket.on "newGame", (board) ->
@@ -15,7 +16,9 @@ angular.module("controllers").controller "Dashboard", [
         $scope.elements[++i].value = value
 
     $scope.bingo = ->
+      socket.emit "bingo"
 
     $scope.chooseElement = (element) ->
-      console.log element
+      element.clicked = true
+      socket.emit "pickSign", {sign: element.index}
 ]
