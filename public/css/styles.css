@@ -3,7 +3,7 @@
     width: 1200px;
     margin: 0 auto;
     background: transparent url(../img/bgr.png) no-repeat top center;
-    min-height: 1200px;
+    min-height: 1048px;
 }
 
 #card {
@@ -24,8 +24,17 @@
 #card .card-row .item {
     width: 50px;
     height: 50px;
-    background: #333;
     margin: 6px;
+}
+
+
+#card .card-row .item img {
+    width: 50px;
+    height: 50px;
+}
+
+#card .card-row .item.clicked img {
+    opacity: 0.5;
 }
 
 #revelation {

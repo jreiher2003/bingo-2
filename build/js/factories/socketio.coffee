@@ -1,7 +1,7 @@
 angular.module("factories").factory "socket", [
   "$rootScope"
   ($rootScope) ->
-    socket = io.connect("192.168.40.10:8907");
+    socket = io.connect();
     (
       on: (eventName, callback) ->
         socket.on eventName, ->
