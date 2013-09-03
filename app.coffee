@@ -16,7 +16,9 @@ app.engine 'ejs', (require 'ejs').renderFile
 
 io = require('socket.io').listen(app.listen(config.app.port));
 
+
 (require './controllers/sockets/connection') io
+(require './controllers/sockets/game') io
 
 
 console.log "Listening on port #{config.app.port}"

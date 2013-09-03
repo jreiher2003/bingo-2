@@ -18,6 +18,18 @@
 
     <!-- Fav and touch icons -->
     <link rel="shortcut icon" href="ico/favicon.png">
+
+
+    <script src="js/vendors/socket.io.min.js"></script>
+    <script src="js/chat.js"></script>
+    <script>
+        window.onload = function() {
+          var socket = io.connect('http://localhost:8000');
+          socket.on('newGame', function (data) {
+            $('#ui-game-sign').html(data);
+          });
+        }
+    </script>
 </head>
 
 <body>
@@ -48,7 +60,9 @@
         </div>
         <div class="span4 offset2">
             <img src="http://placehold.it/300x300" alt="hesus" />
-
+            <br/><br/>
+            <div id="ui-game-sign" class="well">
+            </div>
             <div class="row">
                 <div class="revelation span4">
                     <h3>Hesus latest revelation</h3>
