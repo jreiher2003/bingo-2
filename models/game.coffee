@@ -34,13 +34,21 @@ class Game
     @io.sockets.emit 'roundNumber', @roundNumber
 
   getSignsPicketByPlayer: (playerId) ->
-    @players[playerId]
+    @players[playerId]['history']
 
-  addPlayer: (playerId) ->
+  addPlayer: (playerId, elements) ->
     @players[playerId] = []
+    @players[playerId]['elements'] = elements
+    @players[playerId]['history'] = []
+
+  getPlayerElements: (playerId)  ->
+    @players[playerId]['elements']
 
   playerPickSign: (playerId, signId) ->
-    @players[playerId][@roundNumber] = signId
+    index = _.indexOf(@getPlayerElements(playerId), signId)
+
+    if index > -1
+      @players[playerId]['history'][@roundNumber] = signId
 
   bingo: (playerId) ->
     'dupa'

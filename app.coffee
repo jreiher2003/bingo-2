@@ -13,12 +13,11 @@ app.engine 'ejs', (require 'ejs').renderFile
 
 (require './controllers/dashboard') app
 
-io = require('socket.io').listen(app.listen(config.app.port));
+
+io = require('socket.io').listen(app.listen(config.app.port))
 
 gameInstance = game.createGame(io)
 
 (require './controllers/sockets/connection') io, gameInstance
-#(require './controllers/sockets/game') io, gameInstance
-
 
 console.log "Listening on port #{config.app.port}"
