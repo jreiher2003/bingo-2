@@ -30,7 +30,8 @@ class Game
 
   createNewRound: =>
     @roundNumber = @roundNumber + 1
-    @io.sockets.emit 'newRound', @getRandomElement()
+    @element = @getRandomElement()
+    @io.sockets.emit 'newRound', @element
     @io.sockets.emit 'roundNumber', @roundNumber
 
   getSignsPicketByPlayer: (playerId) ->
@@ -48,7 +49,8 @@ class Game
     index = _.indexOf(@getPlayerElements(playerId), signId)
 
     if index > -1
-      if @element = signId
+      console.log @element is signId, @element , signId
+      if @element is signId
         @players[playerId]['history'][@roundNumber] = signId
 
   bingo: (playerId) ->

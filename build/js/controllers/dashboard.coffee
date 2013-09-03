@@ -15,9 +15,8 @@ angular.module("controllers").controller "Dashboard", [
       )
 
     socket.on "newGame", (board) ->
-      i = -1;
-      for value in board
-        $scope.elements[++i].value = value
+      for i in [0..24]
+        $scope.elements[i].value = board[i]
 
     currentLowerRevelation = null
     lowerRevelation = ->
@@ -37,10 +36,26 @@ angular.module("controllers").controller "Dashboard", [
       if lastPicked isnt null and typeof lastPicked isnt "undefined"
         e = lastPicked.filter (el) -> el isnt null
         for el in $scope.elements
+          el.clicked = ""
           for i in e
-            el.clicked = ""
-            if parseInt(el.index, 10) is parseInt(i, 10)
+            if parseInt(el.value, 10) is parseInt(i, 10)
               el.clicked = "successed"
+
+      isBingo()
+
+    isBingo = ->
+      for e in [0, 5, 10, 15, 20]
+        _isBingo = []
+        for i in [e..e+5]
+          _isBingo.push if $scope.elements[i].clicked is "successed" then 1 else 0
+
+        sum = 0
+        for elToSum in _isBingo
+          sum += elToSum
+
+        if elToSum > 4
+          console.log "BINGO!"
+
 
     lastPicked = null
     socket.on "pickedSigns", (picked) ->
@@ -52,5 +67,5 @@ angular.module("controllers").controller "Dashboard", [
     $scope.chooseElement = (element) ->
       if element.clicked.length < 1
         element.clicked = "clicked"
-        socket.emit "pickSign", {sign: element.index}, ->
+        socket.emit "pickSign", {sign: element.value}, ->
 ]
