@@ -3,15 +3,22 @@ angular.module("controllers").controller "Dashboard", [
   "socket"
   ($scope, socket) ->
     $scope.elements = []
-    elements = []
     for i in [0..24]
       $scope.elements.push (
         clicked: false
         value: false
+        index: i
       )
 
-    console.log elements
+    socket.on "newGame", (board) ->
+      i = -1;
+      for value in board
+        $scope.elements[++i].value = value
 
-    socket.on "new-game", ->
-      console.log arguments
+    $scope.bingo = ->
+      socket.emit "bingo"
+
+    $scope.chooseElement = (element) ->
+      element.clicked = true
+      socket.emit "pickSign", {sign: element.index}
 ]
