@@ -1,4 +1,6 @@
-exports = module.exports = (
+module.exports =
   app:
-    port: 8080  
-)
+    port: 8000
+  game:
+    roundTime: 60 * 60
+    elements: [1..30]
