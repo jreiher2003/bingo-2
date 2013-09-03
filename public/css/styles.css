@@ -1,0 +1,34 @@
+body {
+    padding: 30px;
+}
+
+#card {
+    margin: 50px 0;
+}
+
+#card .card_row {
+    width: 76px;
+    height: 76px;
+    background: #ddd;
+    float: left;
+}
+
+#card .card_row:nth-child(2n) {
+    background: #eee;
+}
+
+#card .card_row .item {
+    width: 48px;
+    height: 48px;
+    background: #333;
+    margin: 14px;
+}
+
+.revelation {
+    text-align: center;
+}
+
+.revelation img.zen {
+    display: inline-block;
+    margin: 20px 0;
+}
