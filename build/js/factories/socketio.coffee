@@ -1,4 +1,4 @@
-app.factory "socket", [
+angular.module("factories").factory "socket", [
   "$rootScope"
   ($rootScope) ->
     socket = io.connect();

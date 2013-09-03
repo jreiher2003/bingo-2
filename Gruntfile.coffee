@@ -8,8 +8,10 @@ module.exports = (grunt) ->
           join: true
         files:
           "public/js/application.js": [
+            "build/js/factories/factories.coffee"
             "build/js/factories/socketio.coffee"
             "build/js/application.coffee"
           ]
 
   grunt.loadNpmTasks "grunt-contrib-coffee"
+n

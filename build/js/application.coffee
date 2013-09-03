@@ -1,1 +1,1 @@
-angular.module "hensus-bingo", ["socket"]
+angular.module "hensus-bingo", ["factories"]
