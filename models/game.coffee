@@ -48,7 +48,8 @@ class Game
     index = _.indexOf(@getPlayerElements(playerId), signId)
 
     if index > -1
-      @players[playerId]['history'][@roundNumber] = signId
+      if @element = signid
+        @players[playerId]['history'][@roundNumber] = signId
 
   bingo: (playerId) ->
     'dupa'
