@@ -29,8 +29,9 @@ class Game
     setInterval @createNewRound, config.game.roundTime
 
   createNewRound: =>
-    @roundNumber = @roundNumber + 1
     @element = @getRandomElement()
+    @roundNumber = @roundNumber + 1
+
     @io.sockets.emit 'newRound', @element
     @io.sockets.emit 'roundNumber', @roundNumber
 
