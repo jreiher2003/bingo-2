@@ -1,12 +1,15 @@
+Player = require '../../models/player'
+
+
 newGame = (game) ->
   (socket) ->
-    userElements = game.shuffleElements()
-    game.addPlayer(socket.id, userElements)
-    socket.emit 'newGame', userElements
+
+    game.addPlayer new Player socket.id
+    socket.emit 'newGame', game.getPlayer(socket.id).getField().getElementsList()
 
     socket.on "pickSign", (data)->
       game.playerPickSign(socket.id, data.sign)
-      socket.emit 'pickedSigns', game.getSignsPicketByPlayer(socket.id)
+      socket.emit 'pickedSigns', game.getPlayer(socket.id).getHistory()
 
     socket.on "bingo", (data) ->
       isWinner =  game.bingo(socket.id)

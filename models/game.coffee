@@ -2,6 +2,9 @@ db = require '../db'
 uuid = require 'node-uuid'
 config = require './../config'
 _ = require 'underscore'
+Field = require './field'
+FieldElement = require './fieldElement'
+Player = require './player'
 
 
 module.exports =
@@ -16,11 +19,15 @@ class Game
     @elements = config.game.elements
     @element = @getRandomElement()
     @fireLoop()
+
     @players = []
     @roundNumber = 0
 
-  shuffleElements: ->
-    _.shuffle(@elements)
+  getPlayer: (playerId) ->
+    @players[playerId]
+
+  addPlayer: (player) ->
+    @players[player.getId()] = player
 
   getRandomElement: ->
     @elements[Math.floor(Math.random()*@elements.length - 1) + 1]
@@ -35,25 +42,14 @@ class Game
     @io.sockets.emit 'newRound', @element
     @io.sockets.emit 'roundNumber', @roundNumber
 
-  getSignsPicketByPlayer: (playerId) ->
-    @players[playerId]['history']
-
-  addPlayer: (playerId, elements) ->
-    @players[playerId] = []
-    @players[playerId]['elements'] = elements
-    @players[playerId]['history'] = []
-
-  getPlayerElements: (playerId)  ->
-    @players[playerId]['elements']
+  createPlayer: (playerId, elements) ->
+    @addPlayer new Player playerId, elements
 
   playerPickSign: (playerId, signId) ->
-    index = _.indexOf(@getPlayerElements(playerId), signId)
-
-    if index > -1
-      console.log @element is signId, @element , signId
-      if @element is signId
-        @players[playerId]['history'][@roundNumber] = signId
+    if @element is signId
+      @getPlayer(playerId).pickElement signId, @roundNumber
 
   bingo: (playerId) ->
-    'dupa'
+    console.log 'elements: '+@getPlayerElements(playerId)
+    console.log 'picks: '+@getSignsPicketByPlayer(playerId)
 
